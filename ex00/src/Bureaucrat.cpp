@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 20:37:25 by sliziard          #+#    #+#             */
-/*   Updated: 2025/10/24 16:10:27 by sliziard         ###   ########.fr       */
+/*   Updated: 2026/02/02 14:10:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
+// ============================================================================
+// Static variables
+// ============================================================================
+
 const int32_t Bureaucrat::c_higherGrade = 1;
 const int32_t Bureaucrat::c_lowerGrade = 150;
 
-// *Constructors
+// ============================================================================
+// Construction / Destruction
+// ============================================================================
+
 Bureaucrat::Bureaucrat(): _c_name("anonym"), _grade(c_lowerGrade)
 {
 #ifdef PRINT_CALLER
@@ -43,7 +50,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other): _c_name(other._c_name), _grade(
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 #endif
 }
-// *Destructor
+
 Bureaucrat::~Bureaucrat()
 {
 #ifdef PRINT_CALLER
@@ -51,7 +58,9 @@ Bureaucrat::~Bureaucrat()
 #endif
 }
 
-// *Operators
+// ============================================================================
+// Operators
+// ============================================================================
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 #ifdef PRINT_CALLER
@@ -62,19 +71,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 		_grade = other._grade;
 	}
 	return *this;
-}
-
-
-//* Methods
-
-// --- Getters ---
-const std::string	&Bureaucrat::getName(void) const
-{
-	return _c_name;
-}
-int32_t				Bureaucrat::getGrade(void) const
-{
-	return _grade;
 }
 
 Bureaucrat	&Bureaucrat::operator++(void)
@@ -111,6 +107,29 @@ Bureaucrat	Bureaucrat::operator--(int)
 	return (save);
 }
 
+std::ostream	&operator<<(std::ostream &os, const Bureaucrat &b)
+{
+	os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+	return os;
+}
+
+// ============================================================================
+// Getters
+// ============================================================================
+
+const std::string	&Bureaucrat::getName(void) const
+{
+	return _c_name;
+}
+int32_t				Bureaucrat::getGrade(void) const
+{
+	return _grade;
+}
+
+// ============================================================================
+// Exceptions
+// ============================================================================
+
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "BureaucratException: grade too high";
@@ -118,10 +137,4 @@ const char	*Bureaucrat::GradeTooHighException::what() const throw()
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "BureaucratException: grade too low";
-}
-
-std::ostream	&operator<<(std::ostream &os, const Bureaucrat &b)
-{
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
-	return os;
 }

@@ -6,18 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 20:00:27 by sliziard          #+#    #+#             */
-/*   Updated: 2025/10/24 16:10:25 by sliziard         ###   ########.fr       */
+/*   Updated: 2026/02/02 14:04:35 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include <exception>
 # include <ostream>
 # include <stdint.h>
 # include <string>
-
-# define PRINT_CALLER
 
 class Bureaucrat {
 
