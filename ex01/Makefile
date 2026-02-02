@@ -2,7 +2,7 @@
 #* >> USER CONFIGURATION (MANDATORY)
 # =============================================================================
 
-NAME      ?= cpp05
+NAME      = ex01
 ifeq ($(NAME),)
     $(error NAME is empty: please define executable name)
 endif
