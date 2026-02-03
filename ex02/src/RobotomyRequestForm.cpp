@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 16:30:44 by sliziard          #+#    #+#             */
-/*   Updated: 2026/02/02 16:33:35 by sliziard         ###   ########.fr       */
+/*   Updated: 2026/02/03 16:34:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void	RobotomyRequestForm::executeAction() const
 {
-	std::cout << "* drilling noises *\n";
+	std::cout << "* drilling noises *" << std::endl;
 	if (std::rand() % 2)
 		std::cout << _target << " has been robotomized successfully" << std::endl;
 	else

@@ -13,7 +13,12 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES     ?= 
+FILES =	AForm.cpp \
+		Bureaucrat.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
+		main.cpp
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -138,6 +143,7 @@ clean:
 fclean: clean
 	$(P)$(RM) $(OUT)
 	$(call clr_print,$(CYAN),executables files cleaned!)
+	$(P)$(RM) *_shrubbery
 
 .PHONY: re
 re: fclean all
